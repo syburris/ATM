@@ -17,8 +17,9 @@ public class ATM {
             Person newPerson = new Person();
             newPerson.enterName();
             newPerson.chooseOption();
+            System.out.println("Enter 1 for another transaction or 2 to exit.");
             String answers = scanner.nextLine();
-            if(answers.equalsIgnoreCase("y")){
+            if(answers.equalsIgnoreCase("2")){
                 newTransaction = false;
             }
         }
