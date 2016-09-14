@@ -11,55 +11,25 @@ public class ATM {
 
     public static void main(String[] args) throws Exception{
 
-        String name;
-        String options;
-        int withdraw;
-        int balance = 100;
+        boolean newTransaction = true;
+        String answer;
 
-        System.out.println("Please enter your name.");
-        name = ATM.scanner.nextLine();
-        if(name.isEmpty()){
-            throw new Exception("Your name is needed");
-        }
-        System.out.println("Welcome, "+ name);
-        System.lineSeparator();
-        System.out.println("Please enter the number of the operation you would like to perform.");
-        System.lineSeparator();
-        System.out.println("1: Check Balance");
-        System.lineSeparator();
-        System.out.println("2: Withdraw Funds");
-        System.lineSeparator();
-        System.out.println("3: Cancel");
-        options = ATM.scanner.nextLine();
-        if(options.equalsIgnoreCase("1")){
-            System.out.println("Your balance is $" + balance);
-        }
-        else if(options.equalsIgnoreCase("2")){
-            System.out.println("How much money would you like to withdraw?");
-            withdraw = ATM.scanner.nextInt();
-            if(withdraw > balance) {
-                throw new Exception("Insufficient Funds");
+        while(newTransaction){
+            Person newPerson = new Person();
+            newPerson.enterName();
+            newPerson.chooseOption();
+            System.out.println("Would you like to make another transaction?");
+            System.out.println("Type 1 to make another transaction or 2 to exit.");
+            answer = scanner.nextLine();
+            if(answer.equalsIgnoreCase("2")){
+                newTransaction = false;
             }
-            else{
-                balance = balance - withdraw;
-                System.out.println("Please take your $" + withdraw);
-                System.lineSeparator();
-                System.out.println("Your new balance is $" + balance);
-                System.lineSeparator();
-                System.out.println("Have a nice day!");
+            else if(answer.equalsIgnoreCase("1")){
+                newPerson.chooseOption();
             }
 
         }
-        else if(options.equalsIgnoreCase("3")){
-            System.out.println("Thank you and please come again.");
-        }
-        else {
-            throw new Exception("I'm sorry, your selection is invalid.");
-        }
-
-
-
-
+        System.out.println("Have a nice day!");
 
 
     }
