@@ -7,6 +7,7 @@ public class Person {
     int withdraw;
     int balance = 100;
     int deposit;
+    String answer;
 
     void enterName() throws Exception {
         System.out.println("Please enter your name.");
@@ -56,10 +57,17 @@ public class Person {
             System.out.println("Your new balance is $"+balance);
         }
         else if(options.equalsIgnoreCase("4")){
-            System.out.println("Thank you and please come again.");
+            cancelTransaction();
         }
+
         else {
             throw new Exception("I'm sorry, your selection is invalid.");
+        }
+    }
+
+    void cancelTransaction(){
+        if(options.equalsIgnoreCase("4")){
+            System.out.println("Thank you and please come again.");
         }
     }
 
