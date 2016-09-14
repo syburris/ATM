@@ -12,6 +12,9 @@ public class ATM {
     public static void main(String[] args) throws Exception{
 
         String name;
+        String options;
+        int withdraw;
+        int balance = 100;
 
         System.out.println("Please enter your name.");
         name = ATM.scanner.nextLine();
@@ -27,6 +30,32 @@ public class ATM {
         System.out.println("2: Withdraw Funds");
         System.lineSeparator();
         System.out.println("3: Cancel");
+        options = ATM.scanner.nextLine();
+        if(options.equalsIgnoreCase("1")){
+            System.out.println("Your balance is $" + balance);
+        }
+        else if(options.equalsIgnoreCase("2")){
+            System.out.println("How much money would you like to withdraw?");
+            withdraw = ATM.scanner.nextInt();
+            if(withdraw > balance) {
+                throw new Exception("Insufficient Funds");
+            }
+            else{
+                balance = balance - withdraw;
+                System.out.println("Please take your $" + withdraw);
+                System.lineSeparator();
+                System.out.println("Your new balance is $" + balance);
+                System.lineSeparator();
+                System.out.println("Have a nice day!");
+            }
+
+        }
+        else if(options.equalsIgnoreCase("3")){
+            System.out.println("Thank you and please come again.");
+        }
+        else {
+            throw new Exception("I'm sorry, your selection is invalid.");
+        }
 
 
 
