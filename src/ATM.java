@@ -20,7 +20,7 @@ public class ATM {
             newPerson.enterName();
             newPerson.chooseOption();
             System.out.println("Enter 1 for another transaction or 2 to exit.");
-            String answer = scanner2.nextLine();
+            String answer = scanner2.next();
             if (answer.equalsIgnoreCase("2")) {
                 newTransaction = false;
             }
