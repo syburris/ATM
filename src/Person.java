@@ -8,6 +8,7 @@ public class Person {
     int balance = 100;
     int deposit;
     String answer;
+    String answers;
 
     void enterName() throws Exception {
         System.out.println("Please enter your name.");
@@ -68,6 +69,18 @@ public class Person {
     void cancelTransaction(){
         if(options.equalsIgnoreCase("4")){
             System.out.println("Thank you and please come again.");
+            ATM.newTransaction = false;
+        }
+    }
+
+    void newTransaction(){
+        System.out.println("Enter 1 for another transaction or 2 to exit.");
+        answers = ATM.scanner2.nextLine();
+        if(answers.equals("2")){
+            ATM.newTransaction = false;
+        }
+        else {
+            ATM.scanner.nextLine();
         }
     }
 

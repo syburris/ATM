@@ -19,14 +19,7 @@ public class ATM {
             Person newPerson = new Person();
             newPerson.enterName();
             newPerson.chooseOption();
-            System.out.println("Enter 1 for another transaction or 2 to exit.");
-            answers = scanner2.nextLine();
-            if(answers.equals("2")){
-                newTransaction = false;
-            }
-            else {
-                scanner.nextLine();
-            }
+            newPerson.newTransaction();
         }
 
         System.out.println("Have a nice day!");
