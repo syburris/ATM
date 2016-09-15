@@ -14,12 +14,12 @@ public class ATM {
 
         String answers;
 
-        Person newPerson = new Person();
-        newPerson.enterName();
+        User newUser = new User();
+        newUser.enterName();
 
         while (newTransaction) {
 
-            newTransaction = newPerson.chooseOption();
+            newTransaction = newUser.chooseOption();
             if(newTransaction) {
                 System.out.println("Enter 1 for another transaction or 2 to exit.");
                 String answer = scanner2.next();
