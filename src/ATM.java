@@ -10,24 +10,21 @@ public class ATM {
     static Scanner scanner2 = new Scanner(System.in);
     public static boolean newTransaction = true;
     public static HashMap<String, Object> users = new HashMap<>();
-    public static ArrayList<Integer> userBalance = new ArrayList<Integer>();
 
 
     public static void main(String[] args) throws Exception {
 
-        userBalance.add(0,100);
-
         users.put("userName", "Steven");
         users.put("password","1234");
-        users.put("balance", userBalance.get(0));
+        users.put("balance", 100);
 
 
-        Person newPerson = new Person();
-        newPerson.logIn();
+        User newUser = new User();
+        newUser.logIn();
 
         while (newTransaction) {
 
-            newTransaction = newPerson.chooseOption();
+            newTransaction = newUser.chooseOption();
             if(newTransaction) {
                 System.out.println("Enter 1 for another transaction or 2 to exit.");
                 String answer = scanner2.next();
