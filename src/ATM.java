@@ -10,20 +10,25 @@ public class ATM {
     static Scanner scanner2 = new Scanner(System.in);
     public static boolean newTransaction;
 
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
 
         boolean newTransaction = true;
         String answers;
 
-        while(newTransaction){
+        while (newTransaction) {
             Person newPerson = new Person();
             newPerson.enterName();
             newPerson.chooseOption();
-            newPerson.newTransaction();
+            System.out.println("Enter 1 for another transaction or 2 to exit.");
+            String answer = scanner2.nextLine();
+            if (answer.equalsIgnoreCase("2")) {
+                newTransaction = false;
+            }
+
+            System.out.println("Have a nice day!");
+
+
         }
-
-        System.out.println("Have a nice day!");
-
 
     }
 }

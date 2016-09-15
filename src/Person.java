@@ -72,13 +72,7 @@ public class Person {
         }
     }
 
-    void newTransaction(){
-        System.out.println("Enter 1 for another transaction or 2 to exit.");
-        answers = ATM.scanner2.nextLine();
-        if(answers.equals("2")){
-            ATM.newTransaction = false;
-        }
-    }
+
 
 
 }
