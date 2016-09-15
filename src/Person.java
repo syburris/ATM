@@ -46,6 +46,7 @@ public class Person {
                 System.out.println("Please take your $" + withdraw);
                 System.lineSeparator();
                 System.out.println("Your new balance is $" + balance);
+                ATM.scanner.nextLine();
 
             }
         }
@@ -56,6 +57,7 @@ public class Person {
             System.out.println("Thank you for your deposit.");
             System.lineSeparator();
             System.out.println("Your new balance is $"+balance);
+            ATM.scanner.nextLine();
         }
         else if(options.equalsIgnoreCase("4")){
             cancelTransaction();
@@ -69,6 +71,7 @@ public class Person {
     void cancelTransaction(){
         if(options.equalsIgnoreCase("4")){
             System.out.println("Thank you and please come again.");
+            System.exit(0);
         }
     }
 

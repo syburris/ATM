@@ -25,10 +25,8 @@ public class ATM {
                 newTransaction = false;
             }
 
-            System.out.println("Have a nice day!");
-
-
         }
+        System.out.println("Have a nice day!");
 
     }
 }
