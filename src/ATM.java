@@ -12,10 +12,10 @@ public class ATM {
 
     public static void main(String[] args) throws Exception {
 
-        String answers;
 
         UserName newUserName = new UserName();
-        newUserName.enterName();
+        newUserName.myUserName.add("Steven");
+        newUserName.enterUserName();
 
         while (newTransaction) {
 

@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * Created by stevenburris on 9/14/16.
  */
@@ -9,15 +11,33 @@ public class UserName {
     int deposit;
     String answer;
     String answers;
+    ArrayList<String> myUserName = new ArrayList<>();
 
-    void enterName() throws Exception {
-        System.out.println("Please enter your name.");
+
+
+    void enterUserName() throws Exception {
+        System.out.println("Please enter your username.");
         name = ATM.scanner.nextLine();
         if(name.isEmpty()){
-            throw new Exception("Your name is needed");
+            throw new Exception("Your username is needed");
         }
-        System.out.println("Welcome, "+ name);
-        System.lineSeparator();
+        else if(myUserName.contains(name)) {
+            System.out.println("Welcome, " + name);
+        }
+        else{
+            System.out.println("You are not a current user.");
+            System.lineSeparator();
+            addNewUser();
+            enterUserName();
+        }
+
+    }
+
+    void addNewUser() throws Exception{
+        System.out.println("Please enter your new username");
+        name = ATM.scanner.nextLine();
+        myUserName.add(name);
+        System.out.println("Welcome to TIY ATM " + name + "!");
     }
 
     boolean chooseOption() throws Exception{
