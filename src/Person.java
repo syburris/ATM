@@ -69,7 +69,6 @@ public class Person {
     void cancelTransaction(){
         if(options.equalsIgnoreCase("4")){
             System.out.println("Thank you and please come again.");
-            ATM.newTransaction = false;
         }
     }
 
@@ -78,9 +77,6 @@ public class Person {
         answers = ATM.scanner2.nextLine();
         if(answers.equals("2")){
             ATM.newTransaction = false;
-        }
-        else {
-            ATM.scanner.nextLine();
         }
     }
 
