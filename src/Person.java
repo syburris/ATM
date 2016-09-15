@@ -20,7 +20,7 @@ public class Person {
         System.lineSeparator();
     }
 
-    void chooseOption() throws Exception{
+    boolean chooseOption() throws Exception{
         System.out.println("Please enter the number of the operation you would like to perform.");
         System.lineSeparator();
         System.out.println("1: Check Balance");
@@ -61,18 +61,18 @@ public class Person {
         }
         else if(options.equalsIgnoreCase("4")){
             cancelTransaction();
+            return false;
         }
 
         else {
             throw new Exception("I'm sorry, your selection is invalid.");
         }
+        return true;
     }
 
     void cancelTransaction(){
         if(options.equalsIgnoreCase("4")){
             System.out.println("Thank you and please come again.");
-            System.out.println("Have a nice day!");
-            System.exit(0);
         }
     }
 
