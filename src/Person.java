@@ -1,19 +1,16 @@
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.*;
+
 
 /**
  * Created by stevenburris on 9/14/16.
  */
-public class UserName {
+public class Person {
     String name;
     String options;
+    String password;
     int withdraw;
     int balance = 100;
     int deposit;
-    String answer;
-    String answers;
-    ArrayList<String> myUserName = new ArrayList<>();
-
 
 
     void enterUserName() throws Exception {
@@ -22,7 +19,7 @@ public class UserName {
         if(name.isEmpty()){
             throw new Exception("Your username is needed");
         }
-        else if(myUserName.contains(name)) {
+        else if(ATM.users.containsValue(name)) {
             System.out.println("Welcome, " + name);
         }
         else{
@@ -35,10 +32,25 @@ public class UserName {
     }
 
     void addNewUser() throws Exception{
-        System.out.println("Please enter your new username");
+        System.out.println("Please enter your desired username");
         name = ATM.scanner.nextLine();
-        myUserName.add(name);
+        ATM.users.put("username",name);
         System.out.println("Welcome to TIY ATM " + name + "!");
+        addPassword();
+    }
+    void addPassword() throws Exception{
+        System.out.println("What would you like your password to be?");
+        password = ATM.scanner.nextLine();
+        if(password.isEmpty()){
+            throw new Exception("You must enter a password");
+        }
+        ATM.users.put("password",password);
+        System.out.println("Thanks for choosing a password!");
+        System.lineSeparator();
+        System.out.println("Now please log in.");
+    }
+    void checkPassword() throws Exception{
+
     }
 
     boolean chooseOption() throws Exception{

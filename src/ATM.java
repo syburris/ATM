@@ -9,17 +9,22 @@ public class ATM {
     static Scanner scanner = new Scanner(System.in);
     static Scanner scanner2 = new Scanner(System.in);
     public static boolean newTransaction = true;
+    public static HashMap<String, Object> users = new HashMap<>();
 
     public static void main(String[] args) throws Exception {
 
+        users.put("userName", "Steven");
+        users.put("password","1234");
+        users.put("balance", 100);
+        System.out.println(users.get("userName"));
 
-        UserName newUserName = new UserName();
-        newUserName.myUserName.add("Steven");
-        newUserName.enterUserName();
+
+        Person newPerson = new Person();
+        newPerson.enterUserName();
 
         while (newTransaction) {
 
-            newTransaction = newUserName.chooseOption();
+            newTransaction = newPerson.chooseOption();
             if(newTransaction) {
                 System.out.println("Enter 1 for another transaction or 2 to exit.");
                 String answer = scanner2.next();
