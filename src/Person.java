@@ -42,7 +42,7 @@ public class Person {
         System.out.println("What would you like your password to be?");
         password = ATM.scanner.nextLine();
         if(password.isEmpty()){
-            throw new Exception("You must enter a password");
+            throw new Exception("You must enter a password.");
         }
         ATM.users.put("password",password);
         System.out.println("Thanks for choosing a password!");
