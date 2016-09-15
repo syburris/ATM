@@ -71,7 +71,7 @@ public class Person {
     void cancelTransaction(){
         if(options.equalsIgnoreCase("4")){
             System.out.println("Thank you and please come again.");
-            System.out.println("Have a nice Day!");
+            System.out.println("Have a nice day!");
             System.exit(0);
         }
     }
