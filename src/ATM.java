@@ -10,17 +10,20 @@ public class ATM {
     static Scanner scanner2 = new Scanner(System.in);
     public static boolean newTransaction = true;
     public static HashMap<String, Object> users = new HashMap<>();
+    public static ArrayList<Integer> userBalance = new ArrayList<Integer>();
+
 
     public static void main(String[] args) throws Exception {
 
+        userBalance.add(0,100);
+
         users.put("userName", "Steven");
         users.put("password","1234");
-        users.put("balance", 100);
-        System.out.println(users.get("userName"));
+        users.put("balance", userBalance.get(0));
 
 
         Person newPerson = new Person();
-        newPerson.enterUserName();
+        newPerson.logIn();
 
         while (newTransaction) {
 

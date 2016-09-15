@@ -9,11 +9,11 @@ public class Person {
     String options;
     String password;
     int withdraw;
-    int balance = 100;
+    int balance = (Integer) ATM.users.get("balance");
     int deposit;
 
-
-    void enterUserName() throws Exception {
+    //log in method
+    void logIn() throws Exception {
         System.out.println("Please enter your username.");
         name = ATM.scanner.nextLine();
         if(name.isEmpty()){
@@ -21,16 +21,19 @@ public class Person {
         }
         else if(ATM.users.containsValue(name)) {
             System.out.println("Welcome, " + name);
+            System.lineSeparator();
+            System.out.println("Please enter your password.");
+            checkPassword();
         }
         else{
             System.out.println("You are not a current user.");
             System.lineSeparator();
             addNewUser();
-            enterUserName();
+            logIn();
         }
 
     }
-
+    //adds new user to the users HashMap
     void addNewUser() throws Exception{
         System.out.println("Please enter your desired username");
         name = ATM.scanner.nextLine();
@@ -38,6 +41,7 @@ public class Person {
         System.out.println("Welcome to TIY ATM " + name + "!");
         addPassword();
     }
+    //adds new user's password to the users HashMap
     void addPassword() throws Exception{
         System.out.println("What would you like your password to be?");
         password = ATM.scanner.nextLine();
@@ -49,7 +53,14 @@ public class Person {
         System.lineSeparator();
         System.out.println("Now please log in.");
     }
+    //verify that password entered is correct
     void checkPassword() throws Exception{
+        if(ATM.scanner.nextLine().equals(ATM.users.get("password"))){
+            chooseOption();
+        }
+        else{
+            throw new Exception("Sorry, your password is incorrect.");
+        }
 
     }
 
@@ -62,16 +73,16 @@ public class Person {
         System.lineSeparator();
         System.out.println("3: Deposit Funds");
         System.lineSeparator();
-        System.out.println("4: Cancel");
+        System.out.println("4: Log Out");
 
         options = ATM.scanner.nextLine();
-        if(options.equalsIgnoreCase("1")){
-            System.out.println("Your balance is $" + balance);
+        if(options.equals("1")){
+            System.out.println("Your balance is $" + ATM.users.get("balance"));
         }
-        else if(options.equalsIgnoreCase("2")){
+        else if(options.equals("2")){
             System.out.println("How much money would you like to withdraw?");
             withdraw = ATM.scanner.nextInt();
-            if(withdraw > balance) {
+            if(withdraw > (Integer) ATM.users.get("balance")) {
                 throw new Exception("Insufficient Funds");
             }
             else{
@@ -83,7 +94,7 @@ public class Person {
 
             }
         }
-        else if(options.equalsIgnoreCase("3")){
+        else if(options.equals("3")){
             System.out.println("How much would you like to deposit?");
             deposit = ATM.scanner.nextInt();
             balance = balance + deposit;
@@ -92,8 +103,8 @@ public class Person {
             System.out.println("Your new balance is $"+balance);
             ATM.scanner.nextLine();
         }
-        else if(options.equalsIgnoreCase("4")){
-            cancelTransaction();
+        else if(options.equals("4")){
+            logOut();
             return false;
         }
 
@@ -103,9 +114,10 @@ public class Person {
         return true;
     }
 
-    void cancelTransaction(){
-        if(options.equalsIgnoreCase("4")){
+    void logOut() throws Exception {
+        if(options.equals("4")){
             System.out.println("Thank you and please come again.");
+            logIn();
         }
     }
 
