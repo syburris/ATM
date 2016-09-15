@@ -24,6 +24,9 @@ public class ATM {
             if(answers.equals("2")){
                 newTransaction = false;
             }
+            else {
+                scanner.nextLine();
+            }
         }
 
         System.out.println("Have a nice day!");
