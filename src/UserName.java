@@ -1,7 +1,7 @@
 /**
  * Created by stevenburris on 9/14/16.
  */
-public class User {
+public class UserName {
     String name;
     String options;
     int withdraw;
