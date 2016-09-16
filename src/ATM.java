@@ -20,21 +20,30 @@ public class ATM {
 
 
         User newUser = new User();
-        newUser.logIn();
 
         while (newTransaction) {
 
+            newUser.logIn();
             newTransaction = newUser.chooseOption();
             if(newTransaction) {
-                System.out.println("Enter 1 for another transaction or 2 to exit.");
+                System.out.println("Enter 1 for another transaction, 2 to exit, or 3 to log out.");
                 String answer = scanner2.next();
+                if (answer.equals("1")) {
+                    newUser.chooseOption();
+                }
                 if (answer.equalsIgnoreCase("2")) {
                     newTransaction = false;
+                }
+                else {
+                        newTransaction = true;
                 }
             }
 
         }
         System.out.println("Have a nice day!");
+        System.lineSeparator();
+        System.lineSeparator();
+
 
     }
 }
