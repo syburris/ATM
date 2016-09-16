@@ -21,21 +21,21 @@ public class ATM {
 
         User newUser = new User();
 
-        while (newTransaction) {
+        newUser.logIn();
 
-            newUser.logIn();
+        while (newTransaction) {
             newTransaction = newUser.chooseOption();
             if(newTransaction) {
                 System.out.println("Enter 1 for another transaction, 2 to exit, or 3 to log out.");
-                String answer = scanner2.next();
+                String answer = scanner2.nextLine();
                 if (answer.equals("1")) {
                     newUser.chooseOption();
                 }
                 else if(answer.equalsIgnoreCase("2")) {
                     newTransaction = false;
                 }
-                else {
-                        newTransaction = true;
+                else if(answer.equals("3")){
+                        newUser.logOut();
                 }
             }
 
