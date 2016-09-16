@@ -57,7 +57,7 @@ public class User {
     void addNewUser() throws Exception {
         System.out.println("Please enter your desired username");
         name = ATM.scanner.nextLine();
-        ATM.users.put("username",name);
+        ATM.users.put("userName",name);
         ATM.users.put("balance",100);
         System.out.println("Welcome to TIY ATM " + name + "!");
         addPassword();
@@ -192,10 +192,9 @@ public class User {
     //method to remove the user's account
 
     void removeAccount() {
-        ATM.users.clear();
+        ATM.users.remove("userName");
+        ATM.users.remove("password");
+        ATM.users.remove("balance");
+        }
     }
 
-
-
-
-}
