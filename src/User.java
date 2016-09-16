@@ -64,7 +64,7 @@ public class User {
         }
 
     }
-
+        //prints out options to user
     boolean chooseOption() throws Exception {
         System.out.println("Please enter the number of the operation you would like to perform.");
         System.lineSeparator();
@@ -120,7 +120,6 @@ public class User {
         else {
             throw new Exception("I'm sorry, your selection is invalid.");
         }
-
         return true;
     }
 

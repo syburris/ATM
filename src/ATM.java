@@ -31,7 +31,7 @@ public class ATM {
                 if (answer.equals("1")) {
                     newUser.chooseOption();
                 }
-                if (answer.equalsIgnoreCase("2")) {
+                else if(answer.equalsIgnoreCase("2")) {
                     newTransaction = false;
                 }
                 else {
