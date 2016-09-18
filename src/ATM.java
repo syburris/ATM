@@ -37,6 +37,7 @@ public class ATM {
                 else if(answer.equals("3")){
                         newUser.logOut();
                 }
+
             }
 
         }

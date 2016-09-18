@@ -140,6 +140,7 @@ public class User {
                 System.lineSeparator();
                 System.out.println("Your new balance is $" + balance);
                 ATM.scanner.nextLine();
+
             }
         }
 
