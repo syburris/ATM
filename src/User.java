@@ -1,3 +1,5 @@
+import com.sun.tools.doclets.formats.html.SourceToHTMLConverter;
+
 import java.util.*;
 
 
@@ -11,6 +13,7 @@ public class User {
     int withdraw;
     int balance = (Integer) ATM.users.get("balance");
     int deposit;
+    String response;
 
     //log in method
     //asks the user to enter their username
@@ -43,7 +46,20 @@ public class User {
         else {
             System.out.println("You are not a current user.");
             System.lineSeparator();
-            addNewUser();
+            System.out.println("Would you like to set up an account?");
+            System.out.println("Type yes for yes or no to exit.");
+            response = ATM.scanner.nextLine();
+            if (response.equalsIgnoreCase("yes")) {
+                addNewUser();
+            }
+            else if(response.equalsIgnoreCase("no")) {
+                System.out.println("We don't need your money anyways.");
+                System.exit(0);
+            }
+            else {
+                System.out.println("Can you read? Lets try this again.");
+                logIn();
+            }
         }
 
     }
