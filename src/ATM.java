@@ -14,9 +14,15 @@ public class ATM {
 
     public static void main(String[] args) throws Exception {
 
-        users.put("userName", "Steven");
-        users.put("password","1234");
-        users.put("balance", 100);
+//        users.put("userName", "Steven");
+//        users.put("password","1234");
+//        users.put("balance", 100);
+        User user = new User();
+        user.name = "steven";
+        user.password = "1234";
+        user.balance = 100;
+        users.put(user.name, user);
+        System.out.println(users.get(user.name));
 
 
         User newUser = new User();
